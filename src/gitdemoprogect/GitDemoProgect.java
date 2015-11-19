@@ -5,6 +5,9 @@
  */
 package gitdemoprogect;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 /**
  *
  * @author nareshp
@@ -16,11 +19,28 @@ public class GitDemoProgect {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        System.out.println("Git Demo Project Edited By Naresh Kumar");
-        
+
+        try {
+            
+            SessionFactory sf = HibernateUtil.getSessionFactory();
+            
+            Session session = sf.openSession();
+
+            Student st = new Student();
+            st.setName("Naresh");
+            st.setEmail("naresp@inventrax.com");
+            st.setAddress("Visakhapatnam");
+            session.save(st);
+
+            session.beginTransaction().commit();
+            
+            session.evict(st);
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+
+        }
+
     }
-    
-    
-    
+
 }
