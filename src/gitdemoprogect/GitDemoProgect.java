@@ -30,15 +30,19 @@ public class GitDemoProgect {
             st.setName("Naresh");
             st.setEmail("naresp@inventrax.com");
             st.setAddress("Visakhapatnam");
+            st.setPhoneNumber("+917799006116");
             session.save(st);
 
             session.beginTransaction().commit();
             
             session.evict(st);
+            
         } catch (Exception ex) {
 
             ex.printStackTrace();
 
+        }finally{
+            
         }
 
     }

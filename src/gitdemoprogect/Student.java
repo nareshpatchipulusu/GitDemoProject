@@ -17,6 +17,7 @@ public class Student implements Serializable {
     private String name;
     private String email;
     private String address;
+    private String phoneNumber;
 
     public  Student(){
         
@@ -77,6 +78,20 @@ public class Student implements Serializable {
      */
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    /**
+     * @return the phoneNumber
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    /**
+     * @param phoneNumber the phoneNumber to set
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
     
     
