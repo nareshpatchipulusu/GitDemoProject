@@ -7,6 +7,7 @@ package gitdemoprogect;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -20,29 +21,48 @@ public class GitDemoProgect {
     public static void main(String[] args) {
         // TODO code application logic here
 
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+
+        Session session = sf.openSession();
+
         try {
-            
-            SessionFactory sf = HibernateUtil.getSessionFactory();
-            
-            Session session = sf.openSession();
+
+            Transaction tc = session.beginTransaction();
 
             Student st = new Student();
-            st.setName("Naresh");
-            st.setEmail("naresp@inventrax.com");
-            st.setAddress("Visakhapatnam");
+            st.setName("Naresh2");
+            st.setEmail("naresp2@inventrax.com");
+            st.setAddress("Visakhapatnam2");
             st.setPhoneNumber("+917799006116");
-            session.save(st);
+            String pk=(String) session.save(st);
+            
+            System.out.println("id="+pk);
+            
+            tc.commit();
+            
+            
+            
 
-            session.beginTransaction().commit();
-            
-            session.evict(st);
-            
         } catch (Exception ex) {
 
             ex.printStackTrace();
 
-        }finally{
-            
+            if (session != null) {
+                session.close();
+            }
+            if (sf != null) {
+                sf.close();
+            }
+
+        } finally {
+
+            if (session != null) {
+                session.close();
+            }
+            if (sf != null) {
+                sf.close();
+            }
+
         }
 
     }
