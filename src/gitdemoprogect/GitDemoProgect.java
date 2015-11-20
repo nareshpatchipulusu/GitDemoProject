@@ -34,6 +34,7 @@ public class GitDemoProgect {
             st.setEmail("naresp2@inventrax.com");
             st.setAddress("Visakhapatnam2");
             st.setPhoneNumber("+917799006116");
+            
             String pk=(String) session.save(st);
             
             System.out.println("id="+pk);

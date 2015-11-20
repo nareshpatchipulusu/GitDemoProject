@@ -13,7 +13,8 @@ import java.io.Serializable;
  */
 public class Student implements Serializable {
     
-    private String id;
+    //private int id;
+    private String number;
     private String name;
     private String email;
     private String address;
@@ -22,20 +23,33 @@ public class Student implements Serializable {
     public  Student(){
         
     }
-    
-    
+
     /**
      * @return the id
      */
-    public String getId() {
-        return id;
+//    public int getId() {
+//        return id;
+//    }
+//
+//    /**
+//     * @param id the id to set
+//     */
+//    public void setId(int id) {
+//        this.id = id;
+//    }
+
+    /**
+     * @return the number
+     */
+    public String getNumber() {
+        return number;
     }
 
     /**
-     * @param id the id to set
+     * @param number the number to set
      */
-    public void setId(String id) {
-        this.id = id;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     /**
@@ -93,6 +107,7 @@ public class Student implements Serializable {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    
     
     
     

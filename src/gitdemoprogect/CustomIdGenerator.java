@@ -9,6 +9,9 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.id.IdentifierGenerator;
 
@@ -21,7 +24,10 @@ public class CustomIdGenerator implements IdentifierGenerator {
     @Override
     public Serializable generate(SessionImplementor s, Object obj) {
         
-        String name = "RT";
+       DateFormat df = new SimpleDateFormat("yy"); // Just the year, with 2 digits
+        String formattedDate = df.format(Calendar.getInstance().getTime());
+        
+        String name = "IN" + formattedDate ;
 
         try {
             Connection con = s.connection();
@@ -29,9 +35,15 @@ public class CustomIdGenerator implements IdentifierGenerator {
 
             ResultSet rs = stmt.executeQuery("select next value for hibernate_sequence");
 
+            //String formatted = String.format("%03d", num);
+            
             if (rs.next()) {
-                name = name + rs.getInt(1);
+                name = name + String.format("%05d", rs.getInt(1));
             }
+            
+            rs.close();
+            
+            stmt.close();
 
         } catch (Exception ex) {
 
