@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="gitdemoprogect.Employee" table="Employee">
+        
+        <id name="id" type="integer" >
+            <generator class="identity"></generator>
+        </id>
+        <property name="name"></property>
+        <property name="email"></property>
+        <property name="phoneNumber"></property>
+        <property name="address"></property>
+        
+        <joined-subclass name="gitdemoprogect.SoftwareEmployee" table="SoftwareEmployee"   >
+            <key column="id"> </key>
+            <property name="WH" ></property>
+        </joined-subclass> 
+        
+        <joined-subclass name="gitdemoprogect.HardwareEmployee" table="HardwareEmployee" >
+            <key column="id"> </key>
+            <property name="tool" ></property>
+        </joined-subclass> 
+        
+    </class>
+    
+</hibernate-mapping>
