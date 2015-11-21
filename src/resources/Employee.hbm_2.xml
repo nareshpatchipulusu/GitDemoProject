@@ -5,20 +5,22 @@
     <class name="gitdemoprogect.Employee" table="Employee">
         
         <id name="id" type="integer" >
-            <generator class="increment"></generator>
+            <generator class="identity"></generator>
         </id>
         <property name="name"></property>
         <property name="email"></property>
         <property name="phoneNumber"></property>
         <property name="address"></property>
         
-        <union-subclass name="gitdemoprogect.SoftwareEmployee" table="SoftwareEmployee"   >
+        <joined-subclass name="gitdemoprogect.SoftwareEmployee" table="SoftwareEmployee"   >
+            <key column="id"> </key>
             <property name="WH" ></property>
-        </union-subclass> 
+        </joined-subclass> 
         
-        <union-subclass name="gitdemoprogect.HardwareEmployee" table="HardwareEmployee" >
+        <joined-subclass name="gitdemoprogect.HardwareEmployee" table="HardwareEmployee" >
+            <key column="id"> </key>
             <property name="tool" ></property>
-        </union-subclass> 
+        </joined-subclass> 
         
     </class>
     

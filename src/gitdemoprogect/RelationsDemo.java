@@ -33,6 +33,10 @@ public class RelationsDemo {
             
             session.close();
             
+//            session.evict(emp);
+//            session.evict(se);
+//            session.evict(he);
+            
             sf.close();
             
             
