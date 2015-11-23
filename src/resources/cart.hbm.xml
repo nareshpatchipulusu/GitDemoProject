@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="gitdemoprogect">
+
+    <class name="Cart" table="Cart">
+        <id name="id" type="long">
+            <generator class="identity"></generator>
+        </id>
+        <property name="total" type="double">
+            <column name="total" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <set name="items" table="Items" fetch="select">
+            <key>
+                <column name="cart_id" not-null="true"></column>
+            </key>
+            <one-to-many class="Items"/>
+        </set>
+        
+            
+    </class>
+</hibernate-mapping>
