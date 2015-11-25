@@ -2,15 +2,18 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.relations">
 
-    <class name="Order" table="Order">
+    <class name="Orders" table="Orders">
         <id name="id" type="integer">
             <generator class="identity"></generator>
         </id>
         <property name="orderNumber" type="string"></property>
-        <property name="orderValue" type="integer"></property>
-        <set name="orderDetail" fetch="select" cascade="all"  >
-            <key column="order_id" not-null="true"></key>
-            <one-to-many class="OrderDetail" ></one-to-many>
+        <property name="orderValue" type="double"></property>
+        
+        <set name="orderDetail" table="OrderDetail" fetch="select" cascade="all"   >
+            <key>
+                <column name="order_id" not-null="true"></column>
+            </key>
+            <one-to-many class="OrderDetail"  ></one-to-many>
         </set>
             
     </class>

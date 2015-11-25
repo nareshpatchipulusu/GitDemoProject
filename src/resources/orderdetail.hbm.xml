@@ -8,7 +8,8 @@
         </id>
         <property name="item" type="string"></property>
         <property name="lineNumber" type="integer" unique="true"></property>
-        <many-to-one name="order" class="Order" >
+        <many-to-one name="orderRec" class="Orders" >
+            
             <column name="order_id" not-null="true"></column>
         </many-to-one>
     </class>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 24, 2015 10:01:11 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.relations.Orders" table="Orders">
+        <id name="id" type="integer">
+            <column name="id" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="orderNumber" type="string">
+            <column name="orderNumber" />
+        </property>
+        <property name="orderValue" type="double">
+            <column name="orderValue" />
+        </property>
+        <set name="orderDetail" table="OrderDetail" inverse="false" lazy="true" cascade="all" fetch="select">
+            <key>
+                <column name="order_id" not-null="true" />
+            </key>
+            <one-to-many class="com.relations.OrderDetail" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -10,15 +10,16 @@
     <property name="hibernate.connection.password">inv123</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
-    <mapping resource="resources/student.hbm.xml"/>
+    <!--    <mapping resource="resources/student.hbm.xml"/>
     <mapping resource="resources/employee.hbm.xml"/>
     
     <mapping resource="resources/cart.hbm.xml"/>
-    <mapping resource="resources/items.hbm.xml"/>
-    
-    <mapping resource="resources/order.hbm.xml"/>
+    <mapping resource="resources/items.hbm.xml"/>-->
+    <mapping resource="resources/orders.hbm.xml"/>
     <mapping resource="resources/orderdetail.hbm.xml"/>
-    
-    
+    <mapping resource="com/relations/PurchaseOrderDetail.hbm.xml"/>
+    <mapping resource="com/relations/PurchaseOrderHeader.hbm.xml"/>
+    <mapping resource="com/relations/Orders.hbm.xml"/>
+    <mapping resource="com/relations/OrderDetail.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
