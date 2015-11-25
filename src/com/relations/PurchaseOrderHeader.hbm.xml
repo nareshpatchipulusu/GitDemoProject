@@ -4,11 +4,12 @@
 <!-- Generated Nov 24, 2015 10:01:11 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.relations.PurchaseOrderHeader" table="PurchaseOrderHeader" schema="dbo" catalog="TestHibernate" optimistic-lock="version">
-        
+        <cache region="purchaseorder" usage="read-only"></cache>
         <id name="poheaderId" type="integer">
             <column name="POHeaderID" />
             <generator class="identity" />
         </id>
+        
         <property name="ponumber" type="string">
             <column name="PONumber" not-null="true" unique="true" />
         </property>
@@ -21,5 +22,8 @@
         <one-to-one name="purchaseOrderDetail" class="com.relations.PurchaseOrderDetail" cascade="all" fetch="select" >
             
         </one-to-one>
+        
+        
+        
     </class>
 </hibernate-mapping>

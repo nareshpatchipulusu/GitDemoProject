@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <query name="HQL_GET_ALL_PURCHASEORDERS">
+        from PurchaseOrderHeader
+    </query>
+    
+    <query name="HQL_GET_PURCHASEORDER_BY_ID">
+        <![CDATA[from PurchaseOrderHeader poh where poh.poheaderId=:id]]>
+    </query>
+    
+    <query name="HQL_GET_PURCHASEORDER_BY_PONUMBER">
+        <![CDATA[from PurchaseOrderHeader where ponumber=:ponumber]]>
+    </query>
+    
+</hibernate-mapping>
