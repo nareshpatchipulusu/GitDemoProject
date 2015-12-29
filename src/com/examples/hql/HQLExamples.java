@@ -21,6 +21,7 @@ public class HQLExamples {
     public static void main(String[] args) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();
+        
 
         try {
             
@@ -90,6 +91,9 @@ public class HQLExamples {
             session.close();
             
             sf.close();
+            
+            
+            System.out.println("Git by swamy....");
             
             
             
