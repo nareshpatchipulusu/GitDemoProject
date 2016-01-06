@@ -40,13 +40,13 @@ public class FirstLevelCacheExample {
 
             System.out.println("----------***********-------------");
             
-            Query q=session.createQuery("update PurchaseOrderHeader set orderValue=:value where poheaderid=:id" );
-            q.setParameter("value", new BigDecimal(102012));
-            q.setParameter("id", 2);
-            
-            q.executeUpdate();
-            
-            session.beginTransaction().commit();
+//            Query q=session.createQuery("update PurchaseOrderHeader set orderValue=:value where poheaderid=:id" );
+//            q.setParameter("value", new BigDecimal(1020124));
+//            q.setParameter("id", 2);
+//            
+//            q.executeUpdate();
+//            
+//            session.beginTransaction().commit();
             
             Session session2 = sf.openSession();
 
